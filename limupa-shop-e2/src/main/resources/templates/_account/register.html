@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_account/accountLayout.html}">
+
+<head>
+
+</head>
+
+<body>
+
+    <div class="container" layout:fragment="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" th:action="@{/account/register}" th:object="${account}" method="post">
+                                	<div th:if="${message != null}" class="alert alert-danger" role="alert">
+							                <i>[[${message}]]</i>
+							            </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="firstName"
+                                            th:field="*{firstName}"
+                                            placeholder="First Name">
+                                         <small id="firstName_helpId" class="form-text text-danger"
+														th:if="${#fields.hasErrors('firstName')}" 
+														th:errors='*{firstName}'></small>    
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="lastName"
+                                         th:field="*{lastName}"
+                                            placeholder="Last Name">
+                                        <small id="lastName_helpId" class="form-text text-danger"
+														th:if="${#fields.hasErrors('lastName')}" 
+														th:errors='*{lastName}'></small> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="username"
+                                        placeholder="User Name"
+                                        th:field="*{username}">
+                                        <small id="username_helpId" class="form-text text-danger"
+														th:if="${#fields.hasErrors('username')}" 
+														th:errors='*{username}'></small> 
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="password" placeholder="Password"
+                                            th:field="*{password}">
+                                            <small id="password_helpId" class="form-text text-danger"
+														th:if="${#fields.hasErrors('password')}" 
+														th:errors='*{password}'></small> 
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="rePassword" placeholder="Repeat Password"
+                                            th:field="*{rePassword}">
+                                            <small id="rePassword_helpId" class="form-text text-danger"
+														th:if="${#fields.hasErrors('rePassword')}" 
+														th:errors='*{rePassword}'></small> 
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" th:href="@{/account/forgot-password}">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" th:href="@{/account/login}">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   
+</body>
+
+</html>
