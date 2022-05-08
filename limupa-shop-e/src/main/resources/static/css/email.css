@@ -1,0 +1,61 @@
+.email-header {
+    padding-left: 20px;
+}
+
+.email-body {
+    padding: 20px;
+    box-shadow: 0 -5px 3px -3px rgb(168, 166, 166), 0 5px 3px -3px rgb(168, 166, 166);
+}
+p, h3, h1 {
+    padding: 0;
+    margin: 0;
+}
+.email-body p:nth-child(1),
+.email-body p:nth-child(2),
+.email-body p:nth-child(3) {
+    padding: 10px 0;
+}
+.email-body h3 {
+    padding: 5px 0;
+    color: rgb(30, 146, 30);
+}
+.email-body h3 b {
+    background-color: rgb(243, 250, 199);
+    color: rgb(1, 121, 212);
+}
+
+.email-body p:nth-child(4) {
+    margin-top: 10px;
+}
+.email-body p:nth-child(5) a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.email-body p:nth-child(6) {
+    margin-top: 20px;
+}
+.email-body p:nth-child(7) {
+    margin-bottom: 20px;
+}
+.email-body p:nth-child(8),
+.email-body p:nth-child(9) {
+    padding-top: 10px;
+    color: rgb(140, 140, 140);
+    font-style: italic;
+}
+
+.email-body p:nth-child(9) a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.email-footer {
+    margin-top: 4px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(242, 240, 240);
+    color: rgb(140, 140, 140);
+}

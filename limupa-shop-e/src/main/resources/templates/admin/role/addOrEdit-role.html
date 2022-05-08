@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/dashboardLayout.html}">
+
+<head>
+</head>
+<body id="page-top">
+<!-- Begin Page Content -->
+<div class="container-fluid" layout:fragment="content">
+    <form th:action="@{/admin/role/saveOrUpdate}" method="post" th:object="${role}">
+        <div class="card text-dark col-sm-8">
+            <div class="card-header">
+                <h1 class="text-primary" th:text="${role.checkEdit ? 'Edit Role' : 'Add New Role'}"></h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <input type="hidden" th:field="*{checkEdit}">
+                        <input type="hidden" th:field="*{id}" th:if="${role.checkEdit}">
+                        <div class="form-group">
+                            <label for="name">Role Name</label>
+                            <input type="text" class="form-control" name="name" id="name"
+                                   th:field="*{name}"
+                                   aria-describedby="name_helpId" placeholder="Role Name">
+                            <small id="name_helpId" class="form-text text-danger"
+                                th:if="${#fields.hasErrors('name')}">
+                                Category name is required!</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input type="text" class="form-control" name="code" id="code"
+                                   th:field="*{code}"
+                                   aria-describedby="code_helpId" placeholder="Role Code">
+                            <small id="code_helpId" class="form-text text-danger"
+                                th:if="${#fields.hasErrors('code')}">
+                                Category name is required!</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a th:href="@{/admin/role/}" th:unless="${role.checkEdit}" class="btn btn-success">List</a>
+                <a th:href="@{'/admin/role/delete/' + ${role.id}}"
+                   th:if="${role.checkEdit}" class="btn btn-success">Delete</a>
+                <button type="submit" class="btn btn-primary"
+                        th:text="${role.checkEdit ? 'Update' : 'Save'}" >Save</button>
+                <button type="reset" class="btn btn-secondary float-right">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /.container-fluid -->
+</body>
+
+</html>
