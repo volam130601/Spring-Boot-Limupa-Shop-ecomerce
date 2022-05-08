@@ -26,7 +26,7 @@ import com.example.limupashope.service.UserService;
 public class AccountController {
 	@Autowired
 	private UserService userService;
-	//
+
 	@Autowired
 	private HttpSession session;
 
@@ -99,6 +99,6 @@ public class AccountController {
 
 	@PostMapping("send-email")
 	public void sendEmail(@RequestParam("emailInput") String emailInput) {
-		System.out.println(emailInput);
+//		System.out.println(emailInput);
 	}
 }
