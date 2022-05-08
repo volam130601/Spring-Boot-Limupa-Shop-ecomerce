@@ -100,5 +100,7 @@ public class AccountController {
 	@PostMapping("send-email")
 	public void sendEmail(@RequestParam("emailInput") String emailInput) {
 //		System.out.println(emailInput);
+		System.out.println(emailInput);
+		System.out.println(emailInput);
 	}
 }
