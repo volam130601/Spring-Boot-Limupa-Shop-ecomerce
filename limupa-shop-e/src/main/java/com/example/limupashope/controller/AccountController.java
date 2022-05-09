@@ -19,6 +19,7 @@ import com.example.limupashope.dto.outside.LoginDto;
 import com.example.limupashope.dto.outside.RegisterDto;
 import com.example.limupashope.entity.Role;
 import com.example.limupashope.entity.User;
+import com.example.limupashope.service.EmailSenderService;
 import com.example.limupashope.service.UserService;
 
 @Controller
@@ -97,8 +98,16 @@ public class AccountController {
 		return "_account/forgot-password";
 	}
 
-	@PostMapping("send-email")
-	public void sendEmail(@RequestParam("emailInput") String emailInput) {
+	@Autowired
+	private EmailSenderService emailSenderService;
+	
+	@PostMapping("forgot-password")
+	public String sendEmail(@RequestParam("emailInput") String emailInput) {
 		System.out.println(emailInput);
+		emailSenderService.sendSimpleMessage(emailInput, 
+					"Reset Password from Limupa Shop ecommerce", 
+					"New password: 123456");
+		userService.save(emailInput);
+		return "_account/forgot-password";
 	}
 }

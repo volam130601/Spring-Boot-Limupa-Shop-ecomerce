@@ -40,7 +40,7 @@
                     <tr th:each="item : ${products}">
                         <th><input type="checkbox" name="checkOne" th:id="${item.productId}"></th>
                         <th> 
-                        	<img th:src="${item.image!=null ? '/admin/products/images/' + item.image : 'img/admin/No_Image_Available.jpg'}" 
+                        	<img th:src="${item.image!=null ? '/admin/products/images/' + item.image : 'assert-admin/img/admin/No_Image_Available.jpg'}" 
                         	width="50%" class="img-fluid">
                         </th>
                         <th th:text="${item.name}"></th>

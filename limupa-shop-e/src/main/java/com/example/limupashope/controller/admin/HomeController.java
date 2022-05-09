@@ -11,7 +11,7 @@ import com.example.limupashope.utils.SessionUtils;
 
 
 
-@Controller
+@Controller("AdminController")
 @RequestMapping("admin")
 public class HomeController{
 	@Autowired

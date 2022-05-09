@@ -100,7 +100,7 @@ public class UserController {
             User entity = opt.get();
             BeanUtils.copyProperties(entity, dto);
             dto.setCheckEdit(true);
-//            dto.setPassword("");
+            dto.setPassword("");
             model.addAttribute("user", dto);
             return new ModelAndView("admin/users/addOrEdit-user", model);
         }

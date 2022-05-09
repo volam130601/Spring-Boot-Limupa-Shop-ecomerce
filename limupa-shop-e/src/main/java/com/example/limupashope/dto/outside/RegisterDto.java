@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 public class RegisterDto {
 	@NotEmpty(message = "User Name cannot be empty!")
 	private String username;
+	@NotEmpty(message = "User Name cannot be empty!")
+	private String email;
 
 	@NotEmpty(message = "Password cannot be empty!")
 	@Min(value = 6,  message="Password is greater than 6")
